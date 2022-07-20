@@ -42,6 +42,9 @@ export function Header() {
           <Link to="/stake" className="header__nav__link">
             Stake
           </Link>
+          <Link to="/" className="header__nav__link">
+            Rewards
+          </Link>
           <a href="#" className="header__nav__link">
             About Us
           </a>

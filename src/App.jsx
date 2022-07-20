@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Route, Routes } from "react-router-dom";
 import "./App.scss";
+import Footer from "./components/Footer";
 import { Header } from "./components/Header";
 import StartGame from "./components/StartGame";
 import Game from "./screens/Game";
@@ -24,7 +25,8 @@ function App() {
           element={<Game setIsStartGame={setIsStartGame} />}
         />
       </Routes>
-      <div style={{ height: 100 }} />
+      <div style={{ height: 50 }} />
+      <Footer />
     </>
   );
 }

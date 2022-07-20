@@ -29,7 +29,7 @@ export default function Game({}) {
         <canvas
           id="game"
           style={{
-            border: "1px solid black",
+            border: "1px solid #ccc",
             width: "100%",
             height: 550,
             borderRadius: 20,
@@ -43,7 +43,13 @@ export default function Game({}) {
         <input
           id="input"
           type="text"
-          style={{ width: "100%", height: 40 }}
+          style={{
+            width: "100%",
+            height: 40,
+            padding: "0em 1.5em",
+            borderRadius: 5,
+            border: "1px solid #ccc",
+          }}
           placeholder="Start writing here"
         />
       </div>
