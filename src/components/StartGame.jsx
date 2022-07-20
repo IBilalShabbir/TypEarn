@@ -7,6 +7,7 @@ export default function StartGame({ setIsStartGame }) {
       <div className="popup__start__game__form">
         <div className="popup__start__game__form__content">
           <StartGameFormEntry
+            setIsStartGame={setIsStartGame}
             icon={
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -56,6 +57,7 @@ export default function StartGame({ setIsStartGame }) {
             }
           />
           <StartGameFormEntry
+            setIsStartGame={setIsStartGame}
             icon={
               <svg
                 xmlns="http://www.w3.org/2000/svg"
