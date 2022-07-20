@@ -311,6 +311,86 @@ body {
   transition: 300ms ease-in-out;
   border-color: #de3131;
 }
+.home__form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 500px;
+  margin: 0em auto;
+  background: linear-gradient(45deg, #88cb90, #446648);
+  border-radius: 20px;
+  margin-bottom: 2em;
+  padding: 3em 2em;
+}
+.home__form__heading {
+  font-size: 30px;
+  font-family: Pasajero, "Montserrat", sans-serif;
+  font-weight: bold;
+  color: white;
+  margin-bottom: 1em;
+}
+.home__form__input {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin-bottom: 1em;
+}
+.home__form__input__label {
+  font-size: 14px;
+  color: white;
+  margin-bottom: 0.5em;
+}
+.home__form__input__field {
+  width: 100%;
+  height: 38px;
+  border-radius: 50px;
+  padding: 0em 1.5em;
+  border: none;
+}
+.home__form__input__field:hover {
+  outline-color: #446648;
+}
+.home__form__input__field:focus {
+  outline-color: #446648;
+}
+.home__form__row {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  width: 100%;
+}
+.home__form__row__entry {
+  position: relative;
+  margin-right: 1em;
+}
+.home__form__row__entry__input {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  cursor: pointer;
+}
+.home__form__row__entry__content {
+  color: white;
+  padding: 0.5em 1em;
+  white-space: nowrap;
+  font-size: 14px;
+  text-align: center;
+  border-radius: 50px;
+  background-color: rgba(255, 255, 255, 0.3);
+  font-weight: 500;
+}
+.home__form__row__entry__input:hover ~ .home__form__row__entry__content {
+  background-color: rgba(255, 255, 255, 0.8);
+  color: black;
+}
+.home__form__row__entry__input:checked ~ .home__form__row__entry__content {
+  background-color: white;
+  color: black;
+}
 @media (max-width: 1440px) {
   .home__banner {
     margin: 0em 2em;

@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { Menu, X } from "react-feather";
+import { Link } from "react-router-dom";
 import logo from "../assets/logo.png";
 
 export function Header() {
@@ -21,9 +22,9 @@ export function Header() {
 
   return (
     <div className="header">
-      <a href="#" className="header__logo">
+      <Link to="/" className="header__logo">
         <img src={logo} alt="logo" className="header__logo__img" />
-      </a>
+      </Link>
       <button
         className="header__nav__menu"
         onClick={() => {
@@ -38,9 +39,9 @@ export function Header() {
       </button>
       {isOpen ? (
         <div className="header__nav">
-          <a href="#" className="header__nav__link">
-            Home
-          </a>
+          <Link to="/stake" className="header__nav__link">
+            Stake
+          </Link>
           <a href="#" className="header__nav__link">
             About Us
           </a>
