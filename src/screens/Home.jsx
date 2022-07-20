@@ -1,7 +1,8 @@
 import React from "react";
 import banner from "../assets/banner.png";
 import icon from "../assets/icon.svg";
-import user from "../assets/user.png";
+import { StatsBoardFilterEntry } from "../components/StatsBoardFilterEntry";
+import { StatsBoardTableList } from "../components/StatsBoardTableList";
 
 export default function Home() {
   return (
@@ -137,44 +138,5 @@ export default function Home() {
         <StatsBoardTableList />
       </div>
     </>
-  );
-}
-
-function StatsBoardFilterEntry({ svg, label, defaultChecked }) {
-  return (
-    <div className="home__stats__board__filter__entry">
-      <input
-        type="radio"
-        defaultChecked={defaultChecked}
-        className="home__stats__board__filter__entry__input"
-        name="home__stats__board__filter__entry"
-      />
-      <div className="home__stats__board__filter__entry__content">
-        {svg}
-        {label}
-      </div>
-    </div>
-  );
-}
-
-function StatsBoardTableList({}) {
-  return (
-    <a href="#" className="home__stats__board__table__list">
-      <div className="home__stats__board__table__list__entry">
-        <span></span> 1
-      </div>
-      <div className="home__stats__board__table__list__entry">
-        <span>Name</span>
-        <img src={user} alt="user" />
-        Sania Basit
-      </div>
-      <div className="home__stats__board__table__list__entry">
-        <span>Speed</span> 47 wpm
-      </div>
-      <div className="home__stats__board__table__list__entry">
-        {" "}
-        <span>Time</span> 29 mins ago
-      </div>
-    </a>
   );
 }
