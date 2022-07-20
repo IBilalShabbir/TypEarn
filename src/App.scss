@@ -238,6 +238,79 @@ body {
   background-color: #202020;
   color: white;
 }
+.popup {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  z-index: 999;
+  background-color: rgba(255, 255, 255, 0.9);
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2em;
+}
+.popup__start__game__form {
+  width: 100%;
+  max-width: 600px;
+  background-color: #202020;
+  border-radius: 20px;
+  padding: 2em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.popup__start__game__form__content {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+.popup__start__game__form__content__entry {
+  width: 48%;
+  height: 250px;
+  border-radius: 15px;
+  background-color: white;
+  cursor: pointer;
+}
+.popup__start__game__form__content__entry__label {
+  font-size: 15px;
+  color: black;
+  margin-top: 1.5em;
+}
+.popup__start__game__form__content__entry__label span {
+  font-weight: bold;
+  color: #64966a;
+}
+.popup__start__game__form__content__entry:hover {
+  transition: 300ms ease-in-out;
+  background: linear-gradient(90deg, #88cb90, #446648);
+}
+.popup__start__game__form__content__entry:hover
+  .popup__start__game__form__content__entry__label {
+  transition: 200ms ease-in-out;
+  color: white;
+}
+.popup__start__game__form__content__entry:hover
+  .popup__start__game__form__content__entry__label
+  span {
+  transition: 300ms ease-in-out;
+  color: white;
+}
+.popup__start__game__form__button {
+  padding: 0.7em 2em;
+  border: none;
+  background-color: #de3131;
+  border: 1px solid #f5f5f5;
+  border-radius: 5px;
+  color: white;
+  margin-top: 1.5em;
+  cursor: pointer;
+}
+.popup__start__game__form__button:hover {
+  transition: 300ms ease-in-out;
+  border-color: #de3131;
+}
 @media (max-width: 1440px) {
   .home__banner {
     margin: 0em 2em;
@@ -300,6 +373,18 @@ body {
 @media (max-width: 768px) {
   .home__banner__img {
     width: 300px;
+  }
+}
+@media (max-width: 650px) {
+  .popup__start__game__form__content {
+    flex-direction: column;
+  }
+  .popup__start__game__form__content__entry {
+    width: 100%;
+    margin-bottom: 1.5em;
+  }
+  .popup__start__game__form__button {
+    margin-top: 0em;
   }
 }
 @media (max-width: 600px) {

@@ -4,7 +4,7 @@ import icon from "../assets/icon.svg";
 import { StatsBoardFilterEntry } from "../components/StatsBoardFilterEntry";
 import { StatsBoardTableList } from "../components/StatsBoardTableList";
 
-export default function Home() {
+export default function Home({ setIsStartGame }) {
   return (
     <>
       <div className="home__banner">
@@ -21,7 +21,12 @@ export default function Home() {
               a typeface without relying on meaningful content. Lorem ipsum may
               be used as a placeholder before final copy is available. Wikipedia
             </div>
-            <button className="home__banner__overlay__content__button">
+            <button
+              className="home__banner__overlay__content__button"
+              onClick={() => {
+                setIsStartGame(true);
+              }}
+            >
               Start the game
             </button>
           </div>
