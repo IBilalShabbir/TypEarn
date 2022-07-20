@@ -22,8 +22,8 @@ export default function StartGame({ setIsStartGame }) {
                     y2="1"
                     gradientUnits="objectBoundingBox"
                   >
-                    <stop offset="0" stop-color="#88cb90" />
-                    <stop offset="1" stop-color="#446648" />
+                    <stop offset="0" stopColor="#88cb90" />
+                    <stop offset="1" stopColor="#446648" />
                   </linearGradient>
                 </defs>
                 <path
@@ -71,8 +71,8 @@ export default function StartGame({ setIsStartGame }) {
                     y2="1"
                     gradientUnits="objectBoundingBox"
                   >
-                    <stop offset="0" stop-color="#88cb90" />
-                    <stop offset="1" stop-color="#446648" />
+                    <stop offset="0" stopColor="#88cb90" />
+                    <stop offset="1" stopColor="#446648" />
                   </linearGradient>
                 </defs>
                 <g
