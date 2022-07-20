@@ -1,6 +1,7 @@
 import React from "react";
 import banner from "../assets/banner.png";
 import icon from "../assets/icon.svg";
+import user from "../assets/user.png";
 
 export default function Home() {
   return (
@@ -27,6 +28,7 @@ export default function Home() {
       </div>
       <div className="home__stats__board__filter">
         <StatsBoardFilterEntry
+          defaultChecked
           svg={
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -101,15 +103,49 @@ export default function Home() {
           label="Competitions"
         />
       </div>
+      <div className="home__stats__board__table">
+        <div className="home__stats__board__table__header">
+          <div className="home__stats__board__table__header__entry" />
+          <div className="home__stats__board__table__header__entry">Name</div>
+          <div className="home__stats__board__table__header__entry">Speed</div>
+          <div className="home__stats__board__table__header__entry">Time</div>
+        </div>
+        <StatsBoardTableList />
+        <StatsBoardTableList />
+        <StatsBoardTableList />
+        <StatsBoardTableList />
+        <StatsBoardTableList />
+        <StatsBoardTableList />
+        <StatsBoardTableList />
+        <StatsBoardTableList />
+        <StatsBoardTableList />
+        <StatsBoardTableList />
+        <StatsBoardTableList />
+        <StatsBoardTableList />
+        <StatsBoardTableList />
+        <StatsBoardTableList />
+        <StatsBoardTableList />
+        <StatsBoardTableList />
+        <StatsBoardTableList />
+        <StatsBoardTableList />
+        <StatsBoardTableList />
+        <StatsBoardTableList />
+        <StatsBoardTableList />
+        <StatsBoardTableList />
+        <StatsBoardTableList />
+        <StatsBoardTableList />
+        <StatsBoardTableList />
+      </div>
     </>
   );
 }
 
-function StatsBoardFilterEntry({ svg, label }) {
+function StatsBoardFilterEntry({ svg, label, defaultChecked }) {
   return (
     <div className="home__stats__board__filter__entry">
       <input
         type="radio"
+        defaultChecked={defaultChecked}
         className="home__stats__board__filter__entry__input"
         name="home__stats__board__filter__entry"
       />
@@ -118,5 +154,27 @@ function StatsBoardFilterEntry({ svg, label }) {
         {label}
       </div>
     </div>
+  );
+}
+
+function StatsBoardTableList({}) {
+  return (
+    <a href="#" className="home__stats__board__table__list">
+      <div className="home__stats__board__table__list__entry">
+        <span></span> 1
+      </div>
+      <div className="home__stats__board__table__list__entry">
+        <span>Name</span>
+        <img src={user} alt="user" />
+        Sania Basit
+      </div>
+      <div className="home__stats__board__table__list__entry">
+        <span>Speed</span> 47 wpm
+      </div>
+      <div className="home__stats__board__table__list__entry">
+        {" "}
+        <span>Time</span> 29 mins ago
+      </div>
+    </a>
   );
 }

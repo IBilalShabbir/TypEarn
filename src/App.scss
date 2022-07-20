@@ -135,7 +135,7 @@ body {
 .home__stats__board__filter {
   width: 100%;
   max-width: 1440px;
-  margin: 2em auto;
+  margin: 3em auto;
   padding: 0em 2em;
   display: flex;
   justify-content: space-between;
@@ -179,10 +179,77 @@ body {
   background-color: #202020;
   color: white;
 }
+.home__stats__board__table {
+  width: 100%;
+  max-width: 1440px;
+  margin: 0em auto;
+  padding: 0em 2em;
+}
+.home__stats__board__table__header {
+  background: linear-gradient(90deg, #88cb90, #446648);
+  border-radius: 50px;
+  display: flex;
+  align-items: center;
+  padding: 1em;
+}
+.home__stats__board__table__header__entry {
+  flex: 1;
+  color: white;
+  font-size: 14px;
+  font-weight: bold;
+  padding-right: 1em;
+}
+.home__stats__board__table__header__entry:first-child {
+  max-width: 200px;
+}
+.home__stats__board__table__list {
+  background-color: #e4e4e4;
+  border-radius: 50px;
+  display: flex;
+  align-items: center;
+  padding: 0.5em 1em;
+  margin-top: 1em;
+  color: black;
+  text-decoration: none;
+}
+.home__stats__board__table__list__entry {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+  padding-right: 1em;
+}
+.home__stats__board__table__list__entry:first-child {
+  max-width: 200px;
+  padding-left: 1em;
+}
+.home__stats__board__table__list__entry img {
+  margin-right: 1em;
+  width: 35px;
+}
+.home__stats__board__table__list__entry span {
+  display: none;
+  margin-right: 1em;
+  width: 70px;
+  font-weight: bold;
+}
+.home__stats__board__table__list:hover {
+  transition: 300ms ease-in-out;
+  background-color: #202020;
+  color: white;
+}
 @media (max-width: 1440px) {
   .home__banner {
     margin: 0em 2em;
     width: calc(100% - 4em);
+  }
+}
+@media (max-width: 1000px) {
+  .home__stats__board__table__header__entry:first-child {
+    max-width: 100px;
+  }
+  .home__stats__board__table__list__entry:first-child {
+    max-width: 100px;
   }
 }
 @media (max-width: 958px) {
@@ -239,6 +306,23 @@ body {
   .home__banner__img {
     width: 400px;
     opacity: 0.2;
+  }
+  .home__stats__board__table__header {
+    display: none;
+  }
+  .home__stats__board__table__list {
+    flex-direction: column;
+    border-radius: 10px;
+    align-items: flex-start;
+  }
+  .home__stats__board__table__list__entry {
+    margin-bottom: 0.5em;
+  }
+  .home__stats__board__table__list__entry span {
+    display: flex;
+  }
+  .home__stats__board__table__list__entry:first-child {
+    display: none;
   }
 }
 @media (max-width: 500px) {
