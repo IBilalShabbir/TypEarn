@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Menu, X } from "react-feather";
-import logo from "../assets/logo.svg";
+import logo from "../assets/logo.png";
 
 export function Header() {
   const [isOpen, setIsOpen] = useState(true);
