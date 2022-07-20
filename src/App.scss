@@ -1,0 +1,92 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+@font-face {
+  font-family: "Pasajero";
+  src: url("./assets/Pasajero.otf");
+}
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Montserrat", sans-serif;
+}
+.header {
+  width: 100%;
+  max-width: 1440px;
+  margin: 0em auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1em 2em;
+  position: relative;
+  background-color: white;
+}
+.header__logo__img {
+  width: 180px;
+}
+.header__nav__menu {
+  background: linear-gradient(90deg, #88cb90, #446648);
+  height: 35px;
+  width: 35px;
+  border-radius: 5px;
+  border: none;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 0em;
+  cursor: pointer;
+}
+.header__nav__menu:hover {
+  transition: 300ms ease-in-out;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+}
+.header__nav {
+  display: flex;
+  align-items: center;
+}
+.header__nav__link {
+  font-size: 16px;
+  color: black;
+  text-decoration: none;
+  padding: 0.5em 1em;
+}
+.header__nav__link:hover {
+  transition: 300ms ease-in-out;
+  color: #88cb90;
+}
+.header__nav__button {
+  font-size: 16px;
+  color: white;
+  text-decoration: none;
+  padding: 0.5em 1.5em;
+  background: linear-gradient(90deg, #88cb90, #446648);
+  border-radius: 5px;
+  margin-left: 1em;
+}
+.header__nav__button:hover {
+  transition: 300ms ease-in-out;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+}
+@media (max-width: 768px) {
+  .header__nav__menu {
+    display: flex;
+  }
+  .header__nav {
+    position: absolute;
+    flex-direction: column;
+    top: 4.5em;
+    left: 0px;
+    background-color: white;
+    width: 100%;
+    padding-bottom: 1.5em;
+  }
+  .header__nav__button {
+    margin-left: 0em;
+    margin-top: 0.5em;
+  }
+}
