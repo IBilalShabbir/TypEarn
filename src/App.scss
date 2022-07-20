@@ -407,7 +407,7 @@ body {
   align-items: center;
   flex-direction: column;
   margin: 0px auto;
-  background-color: rgba(255, 255, 255, 0.8);
+  background-color: rgba(255, 255, 255, 0.5);
   padding: 5em 2em;
 }
 .footer__overlay__content__col {
@@ -416,6 +416,9 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+.popup__start__game__form__content__entry__icon img {
+  width: 50px;
 }
 .footer__overlay__content__col:last-child {
   flex-direction: row;

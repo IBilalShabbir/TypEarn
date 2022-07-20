@@ -3,6 +3,7 @@ import { Route, Routes } from "react-router-dom";
 import "./App.scss";
 import Footer from "./components/Footer";
 import { Header } from "./components/Header";
+import Login from "./components/Login";
 import StartGame from "./components/StartGame";
 import Game from "./screens/Game";
 import Home from "./screens/Home";
@@ -10,10 +11,12 @@ import Stake from "./screens/Stake";
 
 function App() {
   const [isStartGame, setIsStartGame] = useState(false);
+  const [isLogin, setIsLogin] = useState(false);
   return (
     <>
       {isStartGame ? <StartGame setIsStartGame={setIsStartGame} /> : null}
-      <Header />
+      {isLogin ? <Login setIsLogin={setIsLogin} /> : null}
+      <Header setIsLogin={setIsLogin} />
       <Routes>
         <Route path="/" element={<Home setIsStartGame={setIsStartGame} />} />
         <Route

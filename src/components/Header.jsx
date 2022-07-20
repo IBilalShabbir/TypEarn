@@ -3,7 +3,7 @@ import { Menu, X } from "react-feather";
 import { Link } from "react-router-dom";
 import logo from "../assets/logo.png";
 
-export function Header() {
+export function Header({ setIsLogin }) {
   const [isOpen, setIsOpen] = useState(true);
   useEffect(() => {
     if (window.innerWidth < 768) {
@@ -50,6 +50,16 @@ export function Header() {
           </a>
           <a href="#" className="header__nav__button">
             Sign Up
+          </a>
+          <a
+            href="#"
+            onClick={() => {
+              setIsLogin(true);
+            }}
+            className="header__nav__button"
+            style={{ background: "black" }}
+          >
+            Login
           </a>
         </div>
       ) : null}
