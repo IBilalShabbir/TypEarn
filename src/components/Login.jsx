@@ -1,8 +1,9 @@
 import React from "react";
 import facebook from "../assets/facebook.png";
 import google from "../assets/google.png";
+import { facebookLogin, googleLogin } from "../services/auth";
 
-export default function Login({ setIsLogin }) {
+export default function Login({ setUser, setIsLogin }) {
   return (
     <div className="popup">
       <div className="popup__start__game__form">
@@ -17,7 +18,12 @@ export default function Login({ setIsLogin }) {
           Login with Typearn
         </div>
         <div className="popup__start__game__form__content">
-          <button className="popup__start__game__form__content__entry">
+          <button
+            className="popup__start__game__form__content__entry"
+            onClick={() => {
+              facebookLogin(setUser, setIsLogin);
+            }}
+          >
             <div className="popup__start__game__form__content__entry__icon">
               <img src={facebook} alt="facebook" />
             </div>
@@ -27,7 +33,12 @@ export default function Login({ setIsLogin }) {
               </>
             </div>
           </button>
-          <button className="popup__start__game__form__content__entry">
+          <button
+            className="popup__start__game__form__content__entry"
+            onClick={() => {
+              googleLogin(setUser, setIsLogin);
+            }}
+          >
             <div className="popup__start__game__form__content__entry__icon">
               <img src={google} alt="google" />
             </div>

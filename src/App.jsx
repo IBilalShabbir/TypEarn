@@ -10,13 +10,14 @@ import Home from "./screens/Home";
 import Stake from "./screens/Stake";
 
 function App() {
+  const [user, setUser] = useState(null);
   const [isStartGame, setIsStartGame] = useState(false);
   const [isLogin, setIsLogin] = useState(false);
   return (
     <>
       {isStartGame ? <StartGame setIsStartGame={setIsStartGame} /> : null}
-      {isLogin ? <Login setIsLogin={setIsLogin} /> : null}
-      <Header setIsLogin={setIsLogin} />
+      {isLogin ? <Login setUser={setUser} setIsLogin={setIsLogin} /> : null}
+      <Header setIsLogin={setIsLogin} user={user} setUser={setUser} />
       <Routes>
         <Route path="/" element={<Home setIsStartGame={setIsStartGame} />} />
         <Route
