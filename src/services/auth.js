@@ -5,6 +5,7 @@ import {
   signInWithPopup,
   GoogleAuthProvider,
   FacebookAuthProvider,
+  signOut,
 } from "firebase/auth";
 
 const firebaseConfig = {
@@ -49,7 +50,7 @@ export function googleLogin(setUser, setIsLogin) {
     });
 }
 
-export function facebookLogin(setUser) {
+export function facebookLogin(setUser, setIsLogin) {
   const provider = new FacebookAuthProvider();
 
   signInWithPopup(auth, provider)
@@ -74,5 +75,15 @@ export function facebookLogin(setUser) {
       const credential = FacebookAuthProvider.credentialFromError(error);
       console.log("facebook error", errorCode, errorMessage, email, credential);
       // ...
+    });
+}
+
+export function logout(setUser) {
+  signOut(auth)
+    .then(() => {
+      setUser(null);
+    })
+    .catch((error) => {
+      console.log(error);
     });
 }

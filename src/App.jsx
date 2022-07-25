@@ -19,7 +19,16 @@ function App() {
       {isLogin ? <Login setUser={setUser} setIsLogin={setIsLogin} /> : null}
       <Header setIsLogin={setIsLogin} user={user} setUser={setUser} />
       <Routes>
-        <Route path="/" element={<Home setIsStartGame={setIsStartGame} />} />
+        <Route
+          path="/"
+          element={
+            <Home
+              setIsStartGame={setIsStartGame}
+              user={user}
+              setIsLogin={setIsLogin}
+            />
+          }
+        />
         <Route
           path="/stake"
           element={<Stake setIsStartGame={setIsStartGame} />}

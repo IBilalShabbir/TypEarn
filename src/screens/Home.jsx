@@ -4,7 +4,7 @@ import icon from "../assets/icon.svg";
 import { StatsBoardFilterEntry } from "../components/StatsBoardFilterEntry";
 import { StatsBoardTableList } from "../components/StatsBoardTableList";
 
-export default function Home({ setIsStartGame }) {
+export default function Home({ setIsStartGame, user, setIsLogin }) {
   return (
     <>
       <div className="home__banner">
@@ -24,7 +24,7 @@ export default function Home({ setIsStartGame }) {
             <button
               className="home__banner__overlay__content__button"
               onClick={() => {
-                setIsStartGame(true);
+                user === null ? setIsLogin(true) : setIsStartGame(true);
               }}
             >
               Start the game

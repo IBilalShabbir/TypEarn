@@ -2,8 +2,9 @@ import { useEffect, useState } from "react";
 import { Menu, X } from "react-feather";
 import { Link } from "react-router-dom";
 import logo from "../assets/logo.png";
+import { logout } from "../services/auth";
 
-export function Header({ setIsLogin, user }) {
+export function Header({ setUser, setIsLogin, user }) {
   const [isOpen, setIsOpen] = useState(true);
   useEffect(() => {
     if (window.innerWidth < 768) {
@@ -88,7 +89,7 @@ export function Header({ setIsLogin, user }) {
               <a
                 href="#"
                 onClick={() => {
-                  setIsLogin(true);
+                  logout(setUser);
                 }}
                 className="header__nav__button"
                 style={{ background: "black" }}
