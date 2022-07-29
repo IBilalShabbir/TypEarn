@@ -4,7 +4,13 @@ import { Link } from "react-router-dom";
 import logo from "../assets/logo.png";
 import { logout } from "../services/auth";
 
-export function Header({ setUser, setIsLogin, user }) {
+export function Header({
+  dataWallet,
+  setUser,
+  setIsLogin,
+  user,
+  connectWallet,
+}) {
   const [isOpen, setIsOpen] = useState(true);
   useEffect(() => {
     if (window.innerWidth < 768) {
@@ -51,16 +57,12 @@ export function Header({ setUser, setIsLogin, user }) {
           </a>
           {user === null ? (
             <>
-              <a href="#" className="header__nav__button">
-                Sign Up
-              </a>
               <a
                 href="#"
                 onClick={() => {
                   setIsLogin(true);
                 }}
                 className="header__nav__button"
-                style={{ background: "black" }}
               >
                 Login
               </a>
@@ -80,16 +82,34 @@ export function Header({ setUser, setIsLogin, user }) {
                   style={{
                     width: 50,
                     height: 50,
-                    marginRight: "1em",
                     borderRadius: 50,
                   }}
                 />
-                {user.displayName}
+                {/* {user.displayName} */}
               </div>
+              {dataWallet.Balance === null ? (
+                <a
+                  href="#"
+                  onClick={connectWallet}
+                  className="header__nav__button"
+                >
+                  Connect Wallet
+                </a>
+              ) : (
+                <a
+                  href="#"
+                  className="header__nav__button"
+                  style={{ background: "black" }}
+                >
+                  Connected Wallet
+                </a>
+              )}
+
               <a
                 href="#"
                 onClick={() => {
                   logout(setUser);
+                  setUser(null);
                 }}
                 className="header__nav__button"
                 style={{ background: "black" }}
