@@ -129,7 +129,7 @@ body {
   margin-bottom: 1.5em;
 }
 .home__banner__content__left__button {
-  padding: 1.2em 2.2em;
+  padding: 1em 2.2em;
   background-color: white;
   color: black;
   border: 1px solid white;
@@ -499,12 +499,79 @@ body {
   align-items: center;
 }
 
+.home__search {
+  display: flex;
+  width: 100%;
+  max-width: calc(1440px - 4em);
+  padding: 0em 1.5em;
+  margin: 0em auto;
+  background-color: #303030;
+  height: 50px;
+  align-items: center;
+  border: 1px solid transparent;
+}
+.home__search__field {
+  flex: 1;
+  height: 100%;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  padding-left: 1.5em;
+  color: white;
+}
+.home__search:hover {
+  border-color: white;
+  transition: 300ms ease-in-out;
+}
+.home__search:focus-within {
+  transition: 300ms ease-in-out;
+  border-color: white;
+}
+.home__nfts {
+  width: 100%;
+  max-width: 1440px;
+  padding: 2em 1em;
+  margin: 3em auto;
+  display: flex;
+  flex-wrap: wrap;
+}
+.home__nfts__card {
+  width: 31%;
+  margin: 1%;
+  background-color: white;
+  padding: 2em;
+  padding-top: 0em;
+  border: none;
+  cursor: pointer;
+}
+.home__nfts__card__img {
+  width: 100%;
+  height: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.home__nfts__card__img img {
+  width: 250px;
+}
+.home__nfts__card__heading {
+  font-weight: bold;
+}
+.home__nfts__card:hover {
+  background: linear-gradient(45deg, #88cb90, #446648);
+}
+.home__nfts__card:hover .home__nfts__card__heading {
+  color: white;
+}
 @media (max-width: 1000px) {
   .home__stats__board__table__header__entry:first-child {
     max-width: 100px;
   }
   .home__stats__board__table__list__entry:first-child {
     max-width: 100px;
+  }
+  .home__nfts__card {
+    width: 48%;
   }
 }
 @media (max-width: 958px) {
@@ -606,6 +673,9 @@ body {
   }
 }
 @media (max-width: 650px) {
+  .home__nfts__card {
+    width: 100%;
+  }
   .popup__start__game__form__content {
     flex-direction: column;
   }

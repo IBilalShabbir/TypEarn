@@ -72,7 +72,7 @@ export function Header({
                 <Link to="/stake" className="header__nav__link">
                   Stake
                 </Link>
-                <Link to="/" className="header__nav__link">
+                <Link to="/nft" className="header__nav__link">
                   NFT's
                 </Link>
                 <Link to="/" className="header__nav__link">
@@ -142,7 +142,7 @@ export function Header({
                       }}
                       className="header__nav__button"
                       style={{
-                        background: "black",
+                        background: "#242424",
                         color: "white",
                         borderColor: "white",
                       }}
