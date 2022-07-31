@@ -33,6 +33,94 @@ export default function Rewards({ setIsStartGame, user, setIsLogin }) {
           </div>
         </div>
       </div>
+      <div className="reward__entry">
+        <div className="reward__entry__left">
+          <img
+            src={rewards}
+            alt="rewards"
+            className="reward__entry__left__img"
+          />
+        </div>
+        <div className="reward__entry__right">
+          <div className="reward__entry__right__heading">Reward Entry</div>
+          <div className="reward__entry__right__info">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde quod
+            deserunt aut ratione porro, veniam minima quisquam quae magni,
+            perferendis quasi quos debitis accusantium expedita vitae sunt,
+            facere cum quibusdam animi repellat eligendi iusto doloribus beatae.
+            Praesentium nostrum eius dolore minus quas, maxime qui vel eos ab.
+            Quis, reiciendis aliquid?
+          </div>
+        </div>
+      </div>
+      <div className="reward__entry reward__entry__reverse reward__entry__reverse1">
+        <div className="reward__entry__left">
+          <img src={rewards} alt="" className="reward__entry__left__img" />
+        </div>
+        <div className="reward__entry__right">
+          <div className="reward__entry__right__heading">Reward Entry</div>
+          <div className="reward__entry__right__info">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde quod
+            deserunt aut ratione porro, veniam minima quisquam quae magni,
+            perferendis quasi quos debitis accusantium expedita vitae sunt,
+            facere cum quibusdam animi repellat eligendi iusto doloribus beatae.
+            Praesentium nostrum eius dolore minus quas, maxime qui vel eos ab.
+            Quis, reiciendis aliquid?
+          </div>
+        </div>
+      </div>
+      <div className="reward__entry">
+        <div className="reward__entry__left">
+          <img src={rewards} alt="" className="reward__entry__left__img" />
+        </div>
+        <div className="reward__entry__right">
+          <div className="reward__entry__right__heading">Reward Entry</div>
+          <div className="reward__entry__right__info">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde quod
+            deserunt aut ratione porro, veniam minima quisquam quae magni,
+            perferendis quasi quos debitis accusantium expedita vitae sunt,
+            facere cum quibusdam animi repellat eligendi iusto doloribus beatae.
+            Praesentium nostrum eius dolore minus quas, maxime qui vel eos ab.
+            Quis, reiciendis aliquid?
+          </div>
+        </div>
+      </div>
+      <div className="reward__entry reward__entry__reverse reward__entry__reverse2">
+        <div className="reward__entry__left">
+          <img
+            src={rewards}
+            alt="reward__entry__left__img"
+            className="reward__entry__left__img"
+          />
+        </div>
+        <div className="reward__entry__right">
+          <div className="reward__entry__right__heading">Reward Entry</div>
+          <div className="reward__entry__right__info">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde quod
+            deserunt aut ratione porro, veniam minima quisquam quae magni,
+            perferendis quasi quos debitis accusantium expedita vitae sunt,
+            facere cum quibusdam animi repellat eligendi iusto doloribus beatae.
+            Praesentium nostrum eius dolore minus quas, maxime qui vel eos ab.
+            Quis, reiciendis aliquid?
+          </div>
+        </div>
+      </div>
+      <div className="reward__entry">
+        <div className="reward__entry__left">
+          <img src={rewards} alt="" className="reward__entry__left__img" />
+        </div>
+        <div className="reward__entry__right">
+          <div className="reward__entry__right__heading">Reward Entry</div>
+          <div className="reward__entry__right__info">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde quod
+            deserunt aut ratione porro, veniam minima quisquam quae magni,
+            perferendis quasi quos debitis accusantium expedita vitae sunt,
+            facere cum quibusdam animi repellat eligendi iusto doloribus beatae.
+            Praesentium nostrum eius dolore minus quas, maxime qui vel eos ab.
+            Quis, reiciendis aliquid?
+          </div>
+        </div>
+      </div>
     </>
   );
 }
