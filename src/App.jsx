@@ -10,6 +10,7 @@ import Home from "./screens/Home";
 import Stake from "./screens/Stake";
 import { ethers } from "ethers";
 import NFT from "./screens/NFT";
+import Rewards from "./screens/Rewards";
 
 function App() {
   const [user, setUser] = useState(null);
@@ -109,6 +110,16 @@ function App() {
           path="/nft"
           element={
             <NFT
+              setIsStartGame={setIsStartGame}
+              user={user}
+              setIsLogin={setIsLogin}
+            />
+          }
+        />
+        <Route
+          path="/rewards"
+          element={
+            <Rewards
               setIsStartGame={setIsStartGame}
               user={user}
               setIsLogin={setIsLogin}

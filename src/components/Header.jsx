@@ -75,7 +75,7 @@ export function Header({
                 <Link to="/nft" className="header__nav__link">
                   NFT's
                 </Link>
-                <Link to="/" className="header__nav__link">
+                <Link to="/rewards" className="header__nav__link">
                   Rewards
                 </Link>
                 <a href="#" className="header__nav__link">
