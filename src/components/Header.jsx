@@ -73,6 +73,9 @@ export function Header({
                   Stake
                 </Link>
                 <Link to="/" className="header__nav__link">
+                  NFT's
+                </Link>
+                <Link to="/" className="header__nav__link">
                   Rewards
                 </Link>
                 <a href="#" className="header__nav__link">
