@@ -8,12 +8,20 @@
 *::after,
 *::before {
   box-sizing: border-box;
+  font-family: "Montserrat", sans-serif;
 }
 
 body {
   margin: 0;
   padding: 0;
-  font-family: "Montserrat", sans-serif;
+  background-color: #202020;
+}
+.header__wrapper {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  z-index: 9999;
 }
 .header {
   width: 100%;
@@ -24,13 +32,12 @@ body {
   justify-content: space-between;
   padding: 1em 2em;
   position: relative;
-  background-color: white;
 }
 .header__logo__img {
   width: 180px;
 }
 .header__nav__menu {
-  background: linear-gradient(90deg, #88cb90, #446648);
+  background-color: white;
   height: 35px;
   width: 35px;
   border-radius: 5px;
@@ -40,10 +47,12 @@ body {
   justify-content: center;
   padding: 0em;
   cursor: pointer;
+  color: black;
 }
-.header__nav__menu:hover {
-  transition: 300ms ease-in-out;
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+
+.header__nav__menu__active {
+  background: linear-gradient(90deg, #88cb90, #446648);
+  color: white;
 }
 .header__nav {
   display: flex;
@@ -51,86 +60,86 @@ body {
 }
 .header__nav__link {
   font-size: 14px;
-  color: black;
+  color: white;
   text-decoration: none;
   padding: 0.5em 1em;
 }
 .header__nav__link:hover {
   transition: 300ms ease-in-out;
-  color: #88cb90;
+  text-decoration: underline;
 }
 .header__nav__button {
   font-size: 14px;
   color: white;
   text-decoration: none;
   padding: 0.5em 1.5em;
-  background: linear-gradient(90deg, #88cb90, #446648);
+  background-color: transparent;
+  border: 1px solid white;
   border-radius: 5px;
   margin-left: 1em;
 }
 .header__nav__button:hover {
   transition: 300ms ease-in-out;
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+  background-color: white;
+  color: black;
 }
 .home__banner {
-  border-radius: 20px;
-  background: linear-gradient(135deg, #446648, #88cb90, #88cb90);
+  background: linear-gradient(90deg, #446648, #88cb90);
   width: 100%;
-  max-width: calc(1440px - 4em);
   margin: 0em auto;
   position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 500px;
+  height: fit-content;
+  min-height: 600px;
   overflow: hidden;
 }
-.home__banner__img {
-  position: absolute;
-  top: -5px;
-  height: 70%;
-  right: 0px;
-}
-.home__banner__overlay {
-  position: absolute;
-
-  left: 0px;
-  width: 100%;
-  padding: 0em 5em;
+.home__banner__content {
   display: flex;
-  align-items: flex-start;
-}
-.home__banner__overlay__img {
-  width: 100px;
-  margin-right: 1em;
-}
-.home__banner__overlay__content {
   width: 100%;
-  max-width: 400px;
+  max-width: 1440px;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0em 2em;
 }
-.home__banner__overlay__content__heading {
+.home__banner__content__left {
+  width: 50%;
+}
+.home__banner__content__right {
+  width: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.home__banner__content__right__img {
+  width: 100%;
+  max-width: 550px;
+}
+.home__banner__content__left__heading {
   font-family: Pasajero, "Montserrat", sans-serif;
-  font-size: 45px;
+  font-size: 40px;
   color: white;
   font-weight: bold;
   margin-bottom: 0.3em;
 }
-.home__banner__overlay__content__info {
+.home__banner__content__left__info {
   font-size: 15px;
   color: white;
   margin-bottom: 1.5em;
 }
-.home__banner__overlay__content__button {
+.home__banner__content__left__button {
   padding: 1.2em 2.2em;
-  background-color: black;
-  color: white;
-  border-radius: 10px;
+  background-color: white;
+  color: black;
+  border: 1px solid white;
   cursor: pointer;
   border: none;
 }
-.home__banner__overlay__content__button:hover {
+.home__banner__content__left__button:hover {
   transition: 300ms ease-in-out;
   background-color: #446648;
+  color: white;
 }
 .home__stats__board__filter {
   width: 100%;
@@ -157,13 +166,13 @@ body {
   opacity: 0;
 }
 .home__stats__board__filter__entry__content {
-  border-radius: 10px;
   height: 200px;
   border: 1px solid #707070;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  color: white;
 }
 .home__stats__board__filter__entry__content svg {
   margin-bottom: 1.5em;
@@ -176,7 +185,8 @@ body {
 .home__stats__board__filter__entry__input:checked
   ~ .home__stats__board__filter__entry__content {
   transition: 300ms ease-in-out;
-  background-color: #202020;
+  background: linear-gradient(90deg, #88cb90, #446648);
+  border-color: transparent !important;
   color: white;
 }
 .home__stats__board__table {
@@ -203,13 +213,12 @@ body {
   max-width: 200px;
 }
 .home__stats__board__table__list {
-  background-color: #e4e4e4;
   border-radius: 50px;
   display: flex;
   align-items: center;
   padding: 0.5em 1em;
   margin-top: 1em;
-  color: black;
+  color: white;
   text-decoration: none;
 }
 .home__stats__board__table__list__entry {
@@ -489,12 +498,7 @@ body {
   display: flex;
   align-items: center;
 }
-@media (max-width: 1440px) {
-  .home__banner {
-    margin: 0em 2em;
-    width: calc(100% - 4em);
-  }
-}
+
 @media (max-width: 1000px) {
   .home__stats__board__table__header__entry:first-child {
     max-width: 100px;
@@ -557,14 +561,33 @@ body {
     padding-bottom: 1.5em;
     z-index: 9999;
   }
+  .header__nav__link {
+    color: black;
+  }
   .header__nav__button {
     margin-left: 0em;
     margin-top: 0.5em;
+    color: white !important;
+    background: linear-gradient(90deg, #88cb90, #446648);
   }
 }
 @media (max-width: 768px) {
   .home__banner__img {
     width: 300px;
+  }
+  .home__banner {
+    padding: 8em 0em;
+    padding-bottom: 0em;
+  }
+  .home__banner__content {
+    flex-direction: column;
+  }
+  .home__banner__content__left {
+    width: 100%;
+  }
+  .home__banner__content__right {
+    margin-top: 4em;
+    width: 100%;
   }
 }
 @media (max-width: 708px) {
@@ -618,9 +641,6 @@ body {
   }
 }
 @media (max-width: 500px) {
-  .home__banner {
-    height: 550px;
-  }
   .home__banner__overlay__content {
     max-width: 100%;
   }
@@ -639,10 +659,6 @@ body {
   }
 }
 @media (max-width: 350px) {
-  .home__banner {
-    width: 100%;
-    margin: 0em;
-  }
   .home__banner__overlay {
     padding: 0em 2em;
   }
