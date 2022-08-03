@@ -7,6 +7,7 @@ import {
   FacebookAuthProvider,
   signOut,
 } from "firebase/auth";
+import { socket } from "../utils/socket";
 
 const firebaseConfig = {
   apiKey: "AIzaSyBhu-h7lQiRR90qhzBz_v4hw-Jt1Uz8tRU",
@@ -32,10 +33,10 @@ export function googleLogin(setUser, setIsLogin) {
       const token = credential.accessToken;
       // The signed-in user info.
       const user = result.user;
+      socket.send("1" + " " + user?.email);
       console.log(user);
       setUser(user);
       setIsLogin(false);
-      // ...
     })
     .catch((error) => {
       // Handle Errors here.
@@ -60,10 +61,10 @@ export function facebookLogin(setUser, setIsLogin) {
       const token = credential.accessToken;
       // The signed-in user info.
       const user = result.user;
+      socket.send("1" + " " + user?.email);
       console.log(user);
       setUser(user);
       setIsLogin(false);
-      // ...
     })
     .catch((error) => {
       // Handle Errors here.
@@ -74,7 +75,6 @@ export function facebookLogin(setUser, setIsLogin) {
       // The AuthCredential type that was used.
       const credential = FacebookAuthProvider.credentialFromError(error);
       console.log("facebook error", errorCode, errorMessage, email, credential);
-      // ...
     });
 }
 
@@ -82,6 +82,7 @@ export function logout(setUser) {
   signOut(auth)
     .then(() => {
       setUser(null);
+      window.location.href = "/";
     })
     .catch((error) => {
       console.log(error);

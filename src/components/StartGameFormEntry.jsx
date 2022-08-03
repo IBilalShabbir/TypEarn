@@ -7,6 +7,7 @@ export function StartGameFormEntry({
   iconActive,
   label,
   setIsStartGame,
+  smaller,
 }) {
   const [hover, setHover] = useState(false);
   const navigate = useNavigate();
@@ -31,6 +32,7 @@ export function StartGameFormEntry({
         }, 100);
       }}
       className="popup__start__game__form__content__entry"
+      style={smaller ? { width: "32%" } : null}
     >
       <div className="popup__start__game__form__content__entry__icon">
         {hover ? iconActive : icon}

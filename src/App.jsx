@@ -11,27 +11,18 @@ import Stake from "./screens/Stake";
 import { ethers } from "ethers";
 import NFT from "./screens/NFT";
 import Rewards from "./screens/Rewards";
+import { socket } from "./utils/socket";
 
 function App() {
   const [user, setUser] = useState(null);
   const [isStartGame, setIsStartGame] = useState(false);
   const [isLogin, setIsLogin] = useState(false);
-
-  useEffect(() => {
-    if (user === null) {
-      window.localStorage.setItem("user", JSON.stringify(user));
-    }
-  }, [user]);
-
-  useEffect(() => {
-    setUser(JSON.parse(window.localStorage.getItem("user")));
-  }, []);
+  const [dataFromApi, setDataFromApi] = useState([]);
 
   const [data, setdata] = useState({
     address: "",
     Balance: null,
   });
-  console.log(data);
   // Button handler button for handling a
   // request event for metamask
   const btnhandler = () => {
@@ -74,9 +65,29 @@ function App() {
     getbalance(account);
   };
 
+  socket.addEventListener("message", function (event) {
+    const js = JSON.parse(event.data);
+    console.log(js);
+    setDataFromApi(js);
+  });
+
+  // var email = "AAA@gmail.com";
+
+  // function update() {
+  //   console.log("update");
+  //   socket.send("5" + " " + email);
+  // }
+
+  // function next_word() {
+  //   console.log("increase");
+  //   socket.send("6" + " " + email);
+  // }
+
   return (
     <>
-      {isStartGame ? <StartGame setIsStartGame={setIsStartGame} /> : null}
+      {isStartGame ? (
+        <StartGame setIsStartGame={setIsStartGame} email={user?.email} />
+      ) : null}
       {isLogin ? <Login setUser={setUser} setIsLogin={setIsLogin} /> : null}
       <Header
         connectWallet={btnhandler}
@@ -133,6 +144,7 @@ function App() {
               ssetIsStartGame={setIsStartGame}
               user={user}
               setIsLogin={setIsLogin}
+              dataFromApi={dataFromApi}
             />
           }
         />
