@@ -16,10 +16,10 @@ export default function Game({ dataFromApi, user }) {
 
   setInterval(() => {
     update();
-  }, 800);
+  }, 1500);
 
   function showCurrentValue(event) {
-    let list = dataFromApi?.gameData?.sentence.split(" ");
+    let list = dataFromApi?.gameData?.sentence?.split(" ");
     let value = event.target.value;
     setTypedString(value);
     if (dataFromApi?.currentWord != list.length) {
@@ -108,22 +108,19 @@ export default function Game({ dataFromApi, user }) {
         }}
       >
         <h4 style={{ color: "white", wordBreak: "break-all" }}>
-          {dataFromApi?.gameData?.sentence
-            .split(" ")
-            // .filter((word, i) => i >= dataFromApi?.currentWord)
-            .map((word, i) => {
-              return (
-                <span
-                  style={
-                    i === dataFromApi?.currentWord
-                      ? { color: "#88cb90", marginRight: ".5em" }
-                      : { marginRight: ".5em" }
-                  }
-                >
-                  {word}
-                </span>
-              );
-            })}
+          {dataFromApi?.gameData?.sentence?.split(" ").map((word, i) => {
+            return (
+              <span
+                style={
+                  i === dataFromApi?.currentWord
+                    ? { color: "#88cb90", marginRight: ".5em" }
+                    : { marginRight: ".5em" }
+                }
+              >
+                {word}
+              </span>
+            );
+          })}
         </h4>
         <input
           id="input"
