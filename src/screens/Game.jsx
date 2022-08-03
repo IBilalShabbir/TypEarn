@@ -5,11 +5,29 @@ import lightRed from "../assets/game_assets/lightRed.png";
 import lightYellow from "../assets/game_assets/lightYellow.png";
 import lightGreen from "../assets/game_assets/lightGreen.png";
 import { GamePlayerEntry } from "./GamePlayerEntry";
+import { socket } from "../utils/socket";
 
-export default function Game({ dataFromApi }) {
-  let splittedSentence = dataFromApi?.gameData?.sentence.split(" ");
-  let currentWord = 5;
+export default function Game({ dataFromApi, user }) {
+  const [typedString, setTypedString] = React.useState("");
 
+  function showCurrentValue(event) {
+    let list = dataFromApi?.gameData?.sentence.split(" ");
+    let value = event.target.value;
+    setTypedString(value);
+    if (dataFromApi?.currentWord != list.length) {
+      if (dataFromApi?.currentWord + 1 != list.length) {
+        if (list[dataFromApi?.currentWord] + " " == value) {
+          socket.send("6" + " " + user?.email);
+          setTypedString("");
+        }
+      } else {
+        if (list[dataFromApi?.currentWord] == value) {
+          socket.send("6" + " " + user?.email);
+          setTypedString("");
+        }
+      }
+    }
+  }
   return (
     <>
       <div
@@ -109,6 +127,8 @@ export default function Game({ dataFromApi }) {
             borderRadius: 5,
             border: "1px solid #ccc",
           }}
+          value={typedString}
+          onChange={showCurrentValue}
           placeholder="Start writing here"
         />
       </div>

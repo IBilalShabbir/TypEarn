@@ -8,7 +8,10 @@ export function GamePlayerEntry({ data }) {
       <div className="game__container__main__entry__car">
         <div
           style={{
-            marginLeft: data.percentageCompleted + "%",
+            marginLeft:
+              data.percentageCompleted > 5
+                ? data.percentageCompleted - 5 + "%"
+                : data.percentageCompleted + "%",
             display: "flex",
             flexDirection: "column",
             alignItems: "center",

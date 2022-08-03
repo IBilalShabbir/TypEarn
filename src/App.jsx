@@ -78,11 +78,6 @@ function App() {
   //   socket.send("5" + " " + email);
   // }
 
-  // function next_word() {
-  //   console.log("increase");
-  //   socket.send("6" + " " + email);
-  // }
-
   return (
     <>
       {isStartGame ? (
