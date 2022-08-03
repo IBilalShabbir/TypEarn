@@ -18,7 +18,7 @@ function App() {
   const [isLogin, setIsLogin] = useState(false);
 
   useEffect(() => {
-    if (user !== null) {
+    if (user === null) {
       window.localStorage.setItem("user", JSON.stringify(user));
     }
   }, [user]);

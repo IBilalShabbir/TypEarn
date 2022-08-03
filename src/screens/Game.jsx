@@ -1,20 +1,59 @@
 import React from "react";
 import banner from "../assets/banner.png";
 import icon from "../assets/icon.svg";
+import lightRed from "../assets/game_assets/lightRed.png";
+import lightYellow from "../assets/game_assets/lightYellow.png";
+import lightGreen from "../assets/game_assets/lightGreen.png";
+import track from "../assets/game_assets/track.png";
+import { GamePlayerEntry } from "./GamePlayerEntry";
 
 export default function Game({}) {
   return (
     <>
-      <div className="home__banner" style={{ height: 200 }}>
+      <div
+        className="home__banner"
+        style={{
+          minHeight: 200,
+          width: "100%",
+          maxWidth: 1440 - 64,
+          marginTop: "6em",
+          position: "relative",
+          borderRadius: 20,
+        }}
+      >
         <img
           src={banner}
           alt="banner"
-          className="home__banner__img"
-          style={{ height: "150%", top: "-50px" }}
+          style={{
+            position: "absolute",
+            right: 0,
+            height: "150%",
+            top: "-50px",
+          }}
         />
-        <div className="home__banner__overlay" style={{ alignItems: "center" }}>
+        <div
+          className="home__banner__overlay"
+          style={{ width: "100%", padding: "3em" }}
+        >
           <img src={icon} alt="icon" className="home__banner__overlay__img" />
-          <div className="home__banner__overlay__content__heading">TypEarn</div>
+        </div>
+      </div>
+      <div className="game__container">
+        <div className="game__container__header">
+          <div className="game__container__header__left">Let's Play</div>
+          <div className="game__container__header__right">
+            <img
+              src={lightRed}
+              alt="traffic light"
+              className="game__container__header__right__img"
+            />
+          </div>
+        </div>
+        <div className="game__container__main">
+          <GamePlayerEntry />
+          <GamePlayerEntry />
+          <GamePlayerEntry />
+          <GamePlayerEntry />
         </div>
       </div>
       <div
@@ -26,20 +65,11 @@ export default function Game({}) {
           padding: "0em 2em",
         }}
       >
-        <canvas
-          id="game"
-          style={{
-            border: "1px solid #ccc",
-            width: "100%",
-            height: 550,
-            borderRadius: 20,
-          }}
-        ></canvas>
-        <h3>
+        <h4 style={{ color: "white" }}>
           I cant tell you that this is definitely gonna work out, theres no
           guarantees. But if this turns out to be a big mistake, then lets make
           it the most fun, big mistake weve ever made.
-        </h3>
+        </h4>
         <input
           id="input"
           type="text"
