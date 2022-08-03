@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 export function StartGameFormEntry({
+  onClick,
   icon,
   iconActive,
   label,
@@ -11,10 +12,14 @@ export function StartGameFormEntry({
   const navigate = useNavigate();
   return (
     <button
-      onClick={() => {
-        navigate("/game");
-        setIsStartGame(false);
-      }}
+      onClick={
+        onClick
+          ? onClick
+          : () => {
+              navigate("/game");
+              setIsStartGame(false);
+            }
+      }
       onMouseOver={() => {
         setTimeout(() => {
           setHover(true);
