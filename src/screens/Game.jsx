@@ -10,6 +10,14 @@ import { socket } from "../utils/socket";
 export default function Game({ dataFromApi, user }) {
   const [typedString, setTypedString] = React.useState("");
 
+  function update() {
+    socket.send("5" + " " + user?.email);
+  }
+
+  setInterval(() => {
+    update();
+  }, 800);
+
   function showCurrentValue(event) {
     let list = dataFromApi?.gameData?.sentence.split(" ");
     let value = event.target.value;

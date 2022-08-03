@@ -67,16 +67,8 @@ function App() {
 
   socket.addEventListener("message", function (event) {
     const js = JSON.parse(event.data);
-    console.log(js);
     setDataFromApi(js);
   });
-
-  // var email = "AAA@gmail.com";
-
-  // function update() {
-  //   console.log("update");
-  //   socket.send("5" + " " + email);
-  // }
 
   return (
     <>

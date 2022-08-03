@@ -34,7 +34,6 @@ export function googleLogin(setUser, setIsLogin) {
       // The signed-in user info.
       const user = result.user;
       socket.send("1" + " " + user?.email);
-      console.log(user);
       setUser(user);
       setIsLogin(false);
     })
@@ -62,7 +61,6 @@ export function facebookLogin(setUser, setIsLogin) {
       // The signed-in user info.
       const user = result.user;
       socket.send("1" + " " + user?.email);
-      console.log(user);
       setUser(user);
       setIsLogin(false);
     })

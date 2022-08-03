@@ -12,13 +12,11 @@ export default function StartGame({ setIsStartGame, email }) {
   const [idOfGame, setIdOfGame] = React.useState(0);
 
   function join_random() {
-    console.log("joining");
     socket.send("2" + " " + email + " " + noOfParticipants + " silver");
     navigate("/game");
     setIsStartGame(false);
   }
   function create_game() {
-    console.log("create");
     socket.send(
       "3" + " " + email + " " + noOfParticipants.toString() + " silver"
     );
@@ -27,7 +25,6 @@ export default function StartGame({ setIsStartGame, email }) {
   }
 
   function join_id() {
-    console.log("create");
     socket.send("4" + " " + email + " " + idOfGame + " silver");
     navigate("/game");
     setIsStartGame(false);
