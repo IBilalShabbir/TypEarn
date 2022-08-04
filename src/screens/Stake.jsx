@@ -1,6 +1,12 @@
 import React from "react";
 import { StakeAmountEntry } from "../components/StakeAmountEntry";
 import { StakeTableListEntry } from "../components/StakeTableListEntry";
+import nftentry from "../assets/nftentry.png";
+import bronz from "../assets/game_tiers/bronz.png";
+import dimond from "../assets/game_tiers/dimond.png";
+import gold from "../assets/game_tiers/gold.png";
+import platinum from "../assets/game_tiers/platinum.png";
+import silver from "../assets/game_tiers/silver.png";
 import stake from "../assets/stake.png";
 
 export default function Stake({ setIsStartGame, user, setIsLogin }) {
@@ -34,59 +40,78 @@ export default function Stake({ setIsStartGame, user, setIsLogin }) {
           </div>
         </div>
       </div>
-      <div className="home__form">
-        <div className="home__form__heading">Staking</div>
-        <div className="home__form__input">
-          <input
-            type="text"
-            id="amount"
-            placeholder="Amount"
-            className="home__form__input__field"
-          />
-        </div>
-        <div className="home__form__row">
-          <StakeAmountEntry defaultChecked value="15 Days" />
-          <StakeAmountEntry value="30 Days" />
-          <StakeAmountEntry value="45 Days" />
-          <StakeAmountEntry value="90 Days" />
-        </div>
-        <button
-          className="home__banner__content__left__button"
-          style={{ padding: ".9em 2em", borderRadius: 5, marginTop: "2em" }}
-        >
-          Start the game
-        </button>
+      <div className="home__stats__board__filter home__stats__board__filter__special">
+        <StatsBoardFilterEntry defaultChecked image={bronz} label="Bronze" />
+        <StatsBoardFilterEntry image={silver} label="Silver" />
+        <StatsBoardFilterEntry image={gold} label="Gold" />
+        <StatsBoardFilterEntry image={platinum} label="Platinum" />
+        <StatsBoardFilterEntry image={dimond} label="Dimond" />
       </div>
-      <div className="home__stats__board__table">
-        <div className="home__stats__board__table__header">
-          <div className="home__stats__board__table__header__entry" />
-          <div className="home__stats__board__table__header__entry">
-            Staking Date
-          </div>
-          <div className="home__stats__board__table__header__entry">Amount</div>
-          <div className="home__stats__board__table__header__entry">
-            Unstaking Allowed After (Remaining Days)
-          </div>
-        </div>
-        <StakeTableListEntry />
-        <StakeTableListEntry />
-        <StakeTableListEntry />
-        <StakeTableListEntry />
-        <StakeTableListEntry />
-        <StakeTableListEntry />
-        <StakeTableListEntry />
-        <StakeTableListEntry />
-        <StakeTableListEntry />
-        <StakeTableListEntry />
-        <StakeTableListEntry />
-        <StakeTableListEntry />
-        <StakeTableListEntry />
-        <StakeTableListEntry />
-        <StakeTableListEntry />
-        <StakeTableListEntry />
-        <StakeTableListEntry />
-        <StakeTableListEntry />
+      <div className="home__search">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="24.994"
+          height="25"
+          viewBox="0 0 24.994 25"
+        >
+          <path
+            id="Icon_ionic-ios-search"
+            data-name="Icon ionic-ios-search"
+            d="M29.2,27.684l-6.951-7.016a9.906,9.906,0,1,0-1.5,1.523l6.906,6.971a1.07,1.07,0,0,0,1.51.039A1.077,1.077,0,0,0,29.2,27.684ZM14.465,22.275A7.822,7.822,0,1,1,20,19.984,7.774,7.774,0,0,1,14.465,22.275Z"
+            transform="translate(-4.5 -4.493)"
+            fill="#fff"
+          />
+        </svg>
+        <input
+          type="text"
+          placeholder="Search here"
+          className="home__search__field"
+        />
+      </div>
+      <div className="home__nfts">
+        <NFTCard />
+        <NFTCard />
+        <NFTCard />
+        <NFTCard />
+        <NFTCard />
+        <NFTCard />
+        <NFTCard />
+        <NFTCard />
+        <NFTCard />
+        <NFTCard />
+        <NFTCard />
       </div>
     </>
+  );
+}
+
+function NFTCard({}) {
+  return (
+    <button className="home__nfts__card">
+      <div className="home__nfts__card__img">
+        <img src={nftentry} alt="home__nfts__img" />
+      </div>
+      <div className="home__nfts__card__heading">NFT name here</div>
+      <div className="home__nfts__card__heading" style={{ marginTop: 10 }}>
+        30 Days
+      </div>
+      <button className="home__nfts__card__button">Stake</button>
+    </button>
+  );
+}
+function StatsBoardFilterEntry({ image, label, defaultChecked }) {
+  return (
+    <div className="home__stats__board__filter__entry">
+      <input
+        type="radio"
+        defaultChecked={defaultChecked}
+        className="home__stats__board__filter__entry__input"
+        name="tiers"
+      />
+      <div className="home__stats__board__filter__entry__content">
+        <img src={image} alt={label} style={{ marginBottom: 20 }} />
+        {label}
+      </div>
+    </div>
   );
 }

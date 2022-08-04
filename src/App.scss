@@ -141,6 +141,7 @@ body {
   background-color: #446648;
   color: white;
 }
+
 .home__stats__board__filter {
   width: 100%;
   max-width: 1440px;
@@ -150,6 +151,9 @@ body {
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
+}
+.home__stats__board__filter__special .home__stats__board__filter__entry {
+  width: 18%;
 }
 .home__stats__board__filter__entry {
   width: 23%;
@@ -564,6 +568,23 @@ body {
 .home__nfts__card:hover .home__nfts__card__heading {
   color: white;
 }
+.home__nfts__card__button {
+  background-color: #88cb90;
+  color: white;
+  padding: 0.7em 2em;
+  border: none;
+  border-radius: 5px;
+  margin-top: 1em;
+  cursor: pointer;
+}
+.home__nfts__card:hover .home__nfts__card__button {
+  background-color: white;
+  color: black;
+}
+.home__nfts__card:hover .home__nfts__card__button:hover {
+  background-color: black;
+  color: white;
+}
 .reward__entry {
   display: flex;
   align-items: center;
@@ -640,6 +661,9 @@ body {
   font-family: Pasajero, "Montserrat", sans-serif;
   font-weight: bold;
   color: white;
+}
+.game__container__header__left span {
+  font-size: 14px;
 }
 .game__container__header__right img {
   width: 50px;

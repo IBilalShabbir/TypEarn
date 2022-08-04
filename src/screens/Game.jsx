@@ -10,13 +10,9 @@ import { socket } from "../utils/socket";
 export default function Game({ dataFromApi, user }) {
   const [typedString, setTypedString] = React.useState("");
 
-  function update() {
-    socket.send("5" + " " + user?.email);
-  }
-
   setInterval(() => {
-    update();
-  }, 1500);
+    socket.send("5" + " " + user?.email);
+  }, 5000);
 
   function showCurrentValue(event) {
     let list = dataFromApi?.gameData?.sentence?.split(" ");
@@ -68,7 +64,9 @@ export default function Game({ dataFromApi, user }) {
       </div>
       <div className="game__container">
         <div className="game__container__header">
-          <div className="game__container__header__left">Let's Play</div>
+          <div className="game__container__header__left">
+            Let's Play <span>Room no({dataFromApi?.gameData?.id})</span>
+          </div>
           <div className="game__container__header__right">
             <img
               src={
@@ -89,12 +87,12 @@ export default function Game({ dataFromApi, user }) {
           {dataFromApi?.gameData?.players
             ?.filter((player, i) => i === dataFromApi?.myIndex)
             .map((palyer) => (
-              <GamePlayerEntry data={palyer} />
+              <GamePlayerEntry key={JSON.stringify(palyer)} data={palyer} />
             ))}
           {dataFromApi?.gameData?.players
             ?.filter((player, i) => i !== dataFromApi?.myIndex)
             .map((palyer) => (
-              <GamePlayerEntry data={palyer} />
+              <GamePlayerEntry key={JSON.stringify(palyer)} data={palyer} />
             ))}
         </div>
       </div>
@@ -116,6 +114,7 @@ export default function Game({ dataFromApi, user }) {
                     ? { color: "#88cb90", marginRight: ".5em" }
                     : { marginRight: ".5em" }
                 }
+                key={i}
               >
                 {word}
               </span>
