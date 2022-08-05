@@ -10,14 +10,16 @@ import { socket } from "../utils/socket";
 export default function Game({ dataFromApi, user }) {
   const [typedString, setTypedString] = React.useState("");
   console.log(dataFromApi);
+  const [gameStarted, setGameStarted] = React.useState(false);
 
   useEffect(() => {
     if (dataFromApi.gameData.joined === dataFromApi.gameData.noOfPlayers) {
       console.log("game started");
+      setGameStarted(true);
     } else {
       setInterval(() => {
         socket.send("5" + " " + user?.email);
-      }, 5000);
+      }, 1000);
     }
   }, [dataFromApi.gameData.joined, dataFromApi.gameData.noOfPlayers]);
 
@@ -141,6 +143,7 @@ export default function Game({ dataFromApi, user }) {
                 border: "1px solid #ccc",
               }}
               value={typedString}
+              disabled={!gameStarted}
               onChange={showCurrentValue}
               placeholder="Start writing here"
             />
