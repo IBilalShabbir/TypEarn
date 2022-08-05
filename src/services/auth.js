@@ -77,12 +77,8 @@ export function facebookLogin(setUser, setIsLogin) {
 }
 
 export function logout(setUser) {
-  signOut(auth)
-    .then(() => {
-      setUser(null);
-      window.location.href = "/";
-    })
-    .catch((error) => {
-      console.log(error);
-    });
+  signOut(auth).then(() => {
+    setUser(null);
+    window.location.href = "/";
+  });
 }

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import banner from "../assets/banner.png";
 import icon from "../assets/icon.svg";
 import lightRed from "../assets/game_assets/lightRed.png";
@@ -9,10 +9,17 @@ import { socket } from "../utils/socket";
 
 export default function Game({ dataFromApi, user }) {
   const [typedString, setTypedString] = React.useState("");
+  console.log(dataFromApi);
 
-  setInterval(() => {
-    socket.send("5" + " " + user?.email);
-  }, 5000);
+  useEffect(() => {
+    if (dataFromApi.gameData.joined === dataFromApi.gameData.noOfPlayers) {
+      console.log("game started");
+    } else {
+      setInterval(() => {
+        socket.send("5" + " " + user?.email);
+      }, 5000);
+    }
+  }, [dataFromApi.gameData.joined, dataFromApi.gameData.noOfPlayers]);
 
   function showCurrentValue(event) {
     let list = dataFromApi?.gameData?.sentence?.split(" ");
@@ -62,80 +69,98 @@ export default function Game({ dataFromApi, user }) {
           <img src={icon} alt="icon" className="home__banner__overlay__img" />
         </div>
       </div>
-      <div className="game__container">
-        <div className="game__container__header">
-          <div className="game__container__header__left">
-            Let's Play <span>Room no({dataFromApi?.gameData?.id})</span>
+      {dataFromApi.gameData !== {} ? (
+        <>
+          <div className="game__container">
+            <div className="game__container__header">
+              <div className="game__container__header__left">
+                Let's Play <span>Room no({dataFromApi?.gameData?.id})</span>
+              </div>
+              <div className="game__container__header__right">
+                <img
+                  src={
+                    dataFromApi?.gameData?.light === 0
+                      ? lightRed
+                      : dataFromApi?.gameData?.light === 1
+                      ? lightYellow
+                      : dataFromApi?.gameData?.light === 2
+                      ? lightGreen
+                      : lightRed
+                  }
+                  alt="traffic light"
+                  className="game__container__header__right__img"
+                />
+              </div>
+            </div>
+            <div className="game__container__main">
+              {dataFromApi?.gameData?.players
+                ?.filter((player, i) => i === dataFromApi?.myIndex)
+                .map((palyer) => (
+                  <GamePlayerEntry key={JSON.stringify(palyer)} data={palyer} />
+                ))}
+              {dataFromApi?.gameData?.players
+                ?.filter((player, i) => i !== dataFromApi?.myIndex)
+                .map((palyer) => (
+                  <GamePlayerEntry key={JSON.stringify(palyer)} data={palyer} />
+                ))}
+            </div>
           </div>
-          <div className="game__container__header__right">
-            <img
-              src={
-                dataFromApi?.gameData?.light === 0
-                  ? lightRed
-                  : dataFromApi?.gameData?.light === 1
-                  ? lightYellow
-                  : dataFromApi?.gameData?.light === 2
-                  ? lightGreen
-                  : lightRed
-              }
-              alt="traffic light"
-              className="game__container__header__right__img"
+          <div
+            style={{
+              width: "100%",
+              maxWidth: "1440px",
+              margin: "0em auto",
+              marginTop: "2em",
+              padding: "0em 2em",
+            }}
+          >
+            <h4 style={{ color: "white", wordBreak: "break-all" }}>
+              {dataFromApi?.gameData?.sentence?.split(" ").map((word, i) => {
+                return (
+                  <span
+                    style={
+                      i === dataFromApi?.currentWord
+                        ? { color: "#88cb90", marginRight: ".5em" }
+                        : { marginRight: ".5em" }
+                    }
+                    key={i}
+                  >
+                    {word}
+                  </span>
+                );
+              })}
+            </h4>
+            <input
+              id="input"
+              type="text"
+              style={{
+                width: "100%",
+                height: 40,
+                padding: "0em 1.5em",
+                borderRadius: 5,
+                border: "1px solid #ccc",
+              }}
+              value={typedString}
+              onChange={showCurrentValue}
+              placeholder="Start writing here"
             />
           </div>
-        </div>
-        <div className="game__container__main">
-          {dataFromApi?.gameData?.players
-            ?.filter((player, i) => i === dataFromApi?.myIndex)
-            .map((palyer) => (
-              <GamePlayerEntry key={JSON.stringify(palyer)} data={palyer} />
-            ))}
-          {dataFromApi?.gameData?.players
-            ?.filter((player, i) => i !== dataFromApi?.myIndex)
-            .map((palyer) => (
-              <GamePlayerEntry key={JSON.stringify(palyer)} data={palyer} />
-            ))}
-        </div>
-      </div>
-      <div
-        style={{
-          width: "100%",
-          maxWidth: "1440px",
-          margin: "0em auto",
-          marginTop: "2em",
-          padding: "0em 2em",
-        }}
-      >
-        <h4 style={{ color: "white", wordBreak: "break-all" }}>
-          {dataFromApi?.gameData?.sentence?.split(" ").map((word, i) => {
-            return (
-              <span
-                style={
-                  i === dataFromApi?.currentWord
-                    ? { color: "#88cb90", marginRight: ".5em" }
-                    : { marginRight: ".5em" }
-                }
-                key={i}
-              >
-                {word}
-              </span>
-            );
-          })}
-        </h4>
-        <input
-          id="input"
-          type="text"
+        </>
+      ) : (
+        <div
           style={{
             width: "100%",
-            height: 40,
-            padding: "0em 1.5em",
-            borderRadius: 5,
-            border: "1px solid #ccc",
+            maxWidth: "1440px",
+            paddingTop: 30,
+            color: "white",
+            fontSize: 20,
+            margin: "7em auto",
+            textAlign: "center",
           }}
-          value={typedString}
-          onChange={showCurrentValue}
-          placeholder="Start writing here"
-        />
-      </div>
+        >
+          No game found
+        </div>
+      )}
     </>
   );
 }

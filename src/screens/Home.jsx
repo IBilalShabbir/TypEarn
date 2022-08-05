@@ -8,13 +8,11 @@ export default function Home({ setIsStartGame, user, setIsLogin }) {
   const [stats, setStats] = React.useState([]);
   function getScores() {
     axios.get("http://localhost:8000/scores").then((res) => {
-      console.log(res.data.data);
       setStats(res.data.data);
     });
   }
   function getLatest() {
     axios.get("http://localhost:8000/latest").then((res) => {
-      console.log(res.data.data);
       setStats(res.data.data);
     });
   }
