@@ -7,17 +7,17 @@ import { StatsBoardTableList } from "../components/StatsBoardTableList";
 export default function Home({ setIsStartGame, user, setIsLogin }) {
   const [stats, setStats] = React.useState([]);
   function getScores() {
-    axios.get("http://localhost:8000/scores").then((res) => {
+    axios.get("http://54.242.116.71:8000/scores").then((res) => {
       setStats(res.data.data);
     });
   }
   function getLatest() {
-    axios.get("http://localhost:8000/latest").then((res) => {
+    axios.get("http://54.242.116.71:8000/latest").then((res) => {
       setStats(res.data.data);
     });
   }
   function getMyScore() {
-    axios.get("http://localhost:8000/scores").then((res) => {
+    axios.get("http://54.242.116.71:8000/scores").then((res) => {
       setStats(res.data.data.filter((item) => item.email === user?.email));
     });
   }

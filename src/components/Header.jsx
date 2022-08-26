@@ -15,13 +15,13 @@ export function Header({
 }) {
   const [isOpen, setIsOpen] = useState(true);
   useEffect(() => {
-    if (window.innerWidth < 768) {
+    if (window.innerWidth < 1000) {
       setIsOpen(false);
     } else {
       setIsOpen(true);
     }
     window.addEventListener("resize", () => {
-      if (window.innerWidth < 768) {
+      if (window.innerWidth < 1000) {
         setIsOpen(false);
       } else {
         setIsOpen(true);
@@ -32,12 +32,14 @@ export function Header({
   return (
     <div
       className="header__wrapper"
-      style={isOpen && window.innerWidth < 768 ? { background: "white" } : null}
+      style={
+        isOpen && window.innerWidth < 1000 ? { background: "white" } : null
+      }
     >
       <div className="header">
         <Link to="/" className="header__logo">
           <img
-            src={isOpen && window.innerWidth < 768 ? logo : logoLight}
+            src={isOpen && window.innerWidth < 1000 ? logo : logoLight}
             alt="logo"
             className="header__logo__img"
           />
@@ -63,7 +65,7 @@ export function Header({
             <OutsideClickHandler
               display="flex"
               onOutsideClick={() => {
-                if (window.innerWidth < 768) {
+                if (window.innerWidth < 1000) {
                   setIsOpen(false);
                 }
               }}
@@ -87,7 +89,7 @@ export function Header({
                       href="#"
                       onClick={() => {
                         setIsLogin(true);
-                        if (window.innerWidth < 768) {
+                        if (window.innerWidth < 1000) {
                           setIsOpen(false);
                         }
                       }}

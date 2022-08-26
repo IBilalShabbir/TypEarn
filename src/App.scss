@@ -748,13 +748,7 @@ body {
   }
 }
 
-@media (max-width: 768px) {
-  .home__banner__overlay {
-    padding: 0em 3em;
-  }
-  .home__banner__overlay__content {
-    max-width: 350px;
-  }
+@media (max-width: 1000px) {
   .header__nav__menu {
     display: flex;
   }
@@ -777,6 +771,14 @@ body {
     color: white !important;
     background: linear-gradient(90deg, #88cb90, #446648);
   }
+}
+@media (max-width: 768px) {
+  .home__banner__overlay {
+    padding: 0em 3em;
+  }
+  .home__banner__overlay__content {
+    max-width: 350px;
+  }
   .reward__entry {
     flex-direction: column;
     padding: 4em;
@@ -791,8 +793,6 @@ body {
     width: 100%;
     margin-top: 4em;
   }
-}
-@media (max-width: 768px) {
   .home__banner__img {
     width: 300px;
   }
