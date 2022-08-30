@@ -6,11 +6,14 @@ import lightYellow from "../assets/game_assets/lightYellow.png";
 import lightGreen from "../assets/game_assets/lightGreen.png";
 import { GamePlayerEntry } from "./GamePlayerEntry";
 import { socket } from "../utils/socket";
+import { useNavigate } from "react-router-dom";
 
-export default function Game({ dataFromApi, user }) {
+export default function Game({ dataFromApi, user, setUser }) {
+  const navigate = useNavigate();
   const [typedString, setTypedString] = React.useState("");
   console.log(dataFromApi);
   const [gameStarted, setGameStarted] = React.useState(false);
+  const [disable, setDisable] = React.useState(false);
 
   useEffect(() => {
     if (dataFromApi.gameData.joined === dataFromApi.gameData.noOfPlayers) {
@@ -37,6 +40,12 @@ export default function Game({ dataFromApi, user }) {
         if (list[dataFromApi?.currentWord] == value) {
           socket.send("6" + " " + user?.email);
           setTypedString("");
+          setDisable(true);
+
+          // setTimeout(() => {
+          //   navigate("/");
+          //   setUser(null);
+          // }, 1000);
         }
       }
     }
@@ -116,7 +125,7 @@ export default function Game({ dataFromApi, user }) {
               padding: "0em 2em",
             }}
           >
-            <h4 style={{ color: "white", wordBreak: "break-all" }}>
+            <h4 style={{ color: "white", wordBreak: "break-word" }}>
               {dataFromApi?.gameData?.sentence?.split(" ").map((word, i) => {
                 return (
                   <span
@@ -143,7 +152,7 @@ export default function Game({ dataFromApi, user }) {
                 border: "1px solid #ccc",
               }}
               value={typedString}
-              disabled={!gameStarted}
+              disabled={!gameStarted || disable}
               onChange={showCurrentValue}
               placeholder="Start writing here"
             />

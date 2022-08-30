@@ -9,8 +9,8 @@ export function GamePlayerEntry({ data }) {
         <div
           style={{
             marginLeft:
-              data.percentageCompleted > 5
-                ? data.percentageCompleted - 5 + "%"
+              data.percentageCompleted > 7
+                ? data.percentageCompleted - 7 + "%"
                 : data.percentageCompleted + "%",
             display: "flex",
             flexDirection: "column",

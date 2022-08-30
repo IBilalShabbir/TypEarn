@@ -132,6 +132,7 @@ function App() {
               user={user}
               setIsLogin={setIsLogin}
               dataFromApi={dataFromApi}
+              setUser={setUser}
             />
           }
         />

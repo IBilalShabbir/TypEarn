@@ -144,7 +144,7 @@ export default function Home({ setIsStartGame, user, setIsLogin }) {
           <div className="home__stats__board__table__header__entry">Time</div>
         </div>
         {stats.map((stat, index) => (
-          <StatsBoardTableList key={index} data={stat} />
+          <StatsBoardTableList index={index} key={index} data={stat} />
         ))}
       </div>
     </>

@@ -1,7 +1,7 @@
 import React from "react";
 import user from "../assets/user.png";
 
-export function StatsBoardTableList({ data }) {
+export function StatsBoardTableList({ data, index }) {
   // seconds to years, months, days, hours
   function getTime(seconds) {
     let years = Math.floor(seconds / 31536000);
@@ -32,17 +32,15 @@ export function StatsBoardTableList({ data }) {
       time += `${minutes} minutes `;
       count++;
     }
-    return time;
-  }
-
-  async function getImage(email) {
-    return await hashwasm.md5(email);
+    if (count == 0) {
+      return "now";
+    } else return time;
   }
 
   return (
     <a className="home__stats__board__table__list">
       <div className="home__stats__board__table__list__entry">
-        <span></span> 1
+        <span></span> {index + 1}
       </div>
       <div className="home__stats__board__table__list__entry">
         <span>Name</span>
@@ -58,7 +56,9 @@ export function StatsBoardTableList({ data }) {
       </div>
       <div className="home__stats__board__table__list__entry">
         <span>Time</span>
-        {getTime(parseInt(Date.now() / 1000) - data.time)} ago
+        {getTime(parseInt(Date.now() / 1000) - data.time) === "now"
+          ? "now"
+          : getTime(parseInt(Date.now() / 1000) - data.time) + "ago"}
       </div>
     </a>
   );
