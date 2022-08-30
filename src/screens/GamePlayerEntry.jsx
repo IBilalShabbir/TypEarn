@@ -18,6 +18,7 @@ export function GamePlayerEntry({ data }) {
           }}
         >
           <div style={{ color: "white", marginBottom: 10 }}>
+            {data.email.split("@")[0].replace(".", " ")}{" "}
             {data.percentageCompleted + "%"}
           </div>
           <img
