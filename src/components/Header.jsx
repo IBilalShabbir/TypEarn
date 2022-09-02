@@ -13,7 +13,7 @@ export function Header({
   user,
   connectWallet,
 }) {
-  const [isOpen, setIsOpen] = useState(true);
+  const [isOpen, setIsOpen] = useState(false);
   useEffect(() => {
     if (window.innerWidth < 1000) {
       setIsOpen(false);
