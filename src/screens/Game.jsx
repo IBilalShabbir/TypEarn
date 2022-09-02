@@ -6,23 +6,24 @@ import lightYellow from "../assets/game_assets/lightYellow.png";
 import lightGreen from "../assets/game_assets/lightGreen.png";
 import { GamePlayerEntry } from "./GamePlayerEntry";
 import { socket } from "../utils/socket";
-import { useNavigate } from "react-router-dom";
 
-export default function Game({ dataFromApi, user, setUser }) {
-  const navigate = useNavigate();
+export default function Game({ dataFromApi, user }) {
   const [typedString, setTypedString] = React.useState("");
   console.log(dataFromApi);
   const [gameStarted, setGameStarted] = React.useState(false);
   const [disable, setDisable] = React.useState(false);
 
   useEffect(() => {
-    if (dataFromApi.gameData.joined === dataFromApi.gameData.noOfPlayers) {
+    if (
+      dataFromApi.gameData.joined === parseInt(dataFromApi.gameData.noOfPlayers)
+    ) {
       console.log("game started");
       setGameStarted(true);
     } else {
       setInterval(() => {
         socket.send("5" + " " + user?.email);
       }, 1000);
+      console.log("game not started");
     }
   }, [dataFromApi.gameData.joined, dataFromApi.gameData.noOfPlayers]);
 
