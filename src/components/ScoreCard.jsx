@@ -16,14 +16,26 @@ export default function ScoreCard({ onClose, FirstPosition }) {
               Congratulation
             </div>
           )}
-          <div className="scorecard__reverse__form__content__header">
-            <div className="scorecard__reverse__form__content__heading">
-              <span>2</span>nd
+
+          {FirstPosition ? (
+            <div className="scorecard__reverse__form__content__header">
+              <div className="scorecard__reverse__form__content__heading">
+                <span>2</span>nd
+              </div>
+              <div className="scorecard__reverse__form__content__sub__heading">
+                Position
+              </div>
             </div>
-            <div className="scorecard__reverse__form__content__sub__heading">
-              Position
+          ) : (
+            <div className="scorecard__reverse__form__content__header">
+              <div className="scorecard__reverse__form__content__heading">
+                <span>1</span>st
+              </div>
+              <div className="scorecard__reverse__form__content__sub__heading">
+                Position
+              </div>
             </div>
-          </div>
+          )}
           {FirstPosition ? (
             <div className="scorecard__reverse__form__content__score__card">
               <div className="scorecard__reverse__form__content__score__card__heading">

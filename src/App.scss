@@ -899,6 +899,10 @@ body {
 }
 .scorecard__reverse__form__content__header {
   margin-bottom: 2em;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
 }
 .scorecard__reverse__form__content__header__congrates {
   color: #202020;
